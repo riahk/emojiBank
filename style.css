@@ -1,0 +1,18 @@
+.bank {
+  width: 200px;
+  list-style-type: none;
+}
+
+.emoji {
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.selected {
+  background-color: LightSkyBlue;
+  color: white;
+}
+
+.title {
+  color: teal;
+}

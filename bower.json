@@ -1,0 +1,27 @@
+{
+  "name": "emoji bank",
+  "version": "0.0.0",
+  "authors": [
+    "riahk <moar.riah@gmail.com>"
+  ],
+  "description": "store and use unicode emoticons",
+  "main": "manifest.json",
+  "keywords": [
+    "emoji",
+    "emoticon",
+    "chrome",
+    "extension"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "zeroclipboard": "~2.2.0"
+  }
+}
