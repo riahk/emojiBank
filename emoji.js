@@ -1,8 +1,18 @@
-var emojis = [ "(///▽///)", "(((o(*ﾟ▽ﾟ*)o)))" ];
-console.log('debugging');
+if(localStorage.hasOwnProperty('emojis')) {
+  var emojis = JSON.parse(localStorage['emojis']);
+} else {
+    var defaultEmojis = [ "(///▽///)", "(((o(*ﾟ▽ﾟ*)o)))" ];
+    localStorage['emojis'] = JSON.stringify(emojis);
+}
+
+//var emojis = JSON.parse(window.localStorage['emojis']);
+
+//var defaultEmojis = [ "(///▽///)", "(((o(*ﾟ▽ﾟ*)o)))" ];
+//localStorage['emojis'] = JSON.stringify(defaultEmojis);
 
 $(document).ready(function() {
   //list all emoji in the bank
+  var emojis = JSON.parse(localStorage['emojis']);
   for(var i = 0; i < emojis.length; i++) {
     var emoji = emojis[i];
     $('.bank').append("<li class=\"emoji\"><input value=\""+emoji+"\" readonly></input></li>");
