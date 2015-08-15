@@ -5,21 +5,24 @@ $(document).ready(function() {
   //list all emoji in the bank
   for(var i = 0; i < emojis.length; i++) {
     var emoji = emojis[i];
-    $('.bank').append("<li class=\"emoji\">"+emoji+"</li>");
+    $('.bank').append("<li class=\"emoji\"><input value=\""+emoji+"\" readonly></input></li>");
   }
 
+  //select emoji when clicked
   $('.bank').on('click', '.emoji', function(event) {
     $(".selected").removeClass("selected");
     $(this).addClass("selected");
-    var emojiText = $(this).text();
-    console.log(emojiText);
+    $(this).children()[0].select();
   });
 
-  var client = new ZeroClipboard( document.getElementById("copy"));
+  //zeroclipboard
+  /*var client = new ZeroClipboard( $("#copy"));
+  console.log(client);
+
   client.on("ready", function(readyEvent) {
     client.on("aftercopy", function(event) {
       event.target.style.display = "none";
       console.log('copied!');
     });
-  }); 
+  });*/
 });
