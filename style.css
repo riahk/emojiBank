@@ -16,3 +16,7 @@
 .title {
   color: teal;
 }
+
+.hidden {
+  display: none;
+}
