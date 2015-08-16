@@ -1,6 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#newEmoji {
+  height: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+input:focus {
+  outline: none;
+  border-style: solid;
+  border-color: Plum;
+}
+
 .bank {
   width: 200px;
   list-style-type: none;
+  padding: 0px;
 }
 
 .emoji {
@@ -10,7 +29,7 @@
 
 .selected {
   background-color: LightSkyBlue;
-  color: white;
+  color: indigo;
 }
 
 .title {
@@ -19,4 +38,35 @@
 
 .hidden {
   display: none;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  background-color: pink;
+  color: indigo;
+  border-style: none;
+  border-radius: 5px;
+}
+
+button:focus {
+  outline: none;
+  border-style: solid;
+  border-color: Plum;
+}
+
+::selection {
+  background: Plum;
+}
+
+::-moz-selection {
+  background: Plum;
+}
+
+.yes {
+  margin: 2px;
+}
+
+.no {
+  margin: 2px;
 }
