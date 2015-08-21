@@ -24,6 +24,7 @@ While emojiBank is fully functional, it is still in early development and there 
 
 - Syncing with chrome (to save your emoji across computers)
 - Tagging, sorting and searching emoji
+- Upload of emojis via text files
 - More keyboard shortcuts and macros to make it as easy and seamless to incorporate emoji into your posts/conversations.
 
 Enjoy!
