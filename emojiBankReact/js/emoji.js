@@ -11,16 +11,16 @@ var Title = React.createClass({
 var EmojiList = React.createClass({
   emojis: { "(///▽///)": "(///▽///)", 
       "(((o(*ﾟ▽ﾟ*)o)))": "(((o(*ﾟ▽ﾟ*)o)))" 
-  };
+  },
   
   getInitialState: function() {
-    return { emojis: emojis };
+    return { emojis: this.emojis };
   },
 
   render: function() {
     return (
       <ul>
-        <li>Yo</li>
+        <li><Emoji emoji="(///▽///)" /></li>
       </ul>
     );
   }
@@ -29,7 +29,7 @@ var EmojiList = React.createClass({
 var Emoji = React.createClass({
   render: function() {
     return (
-      <input value={this.props} readonly></input>
+      <input value={this.props.emoji} readonly></input>
     );
   }
 });
