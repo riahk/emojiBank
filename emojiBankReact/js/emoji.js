@@ -17,10 +17,6 @@ var Title = React.createClass({
 });
 
 var EmojiList = React.createClass({
-  emojis: { "(///▽///)": "(///▽///)", 
-      "(((o(*ﾟ▽ﾟ*)o)))": "(((o(*ﾟ▽ﾟ*)o)))" 
-  },
-  
   getInitialState: function() {
     return { emojis: this.emojis };
   },
@@ -75,7 +71,8 @@ var AddButton = React.createClass({
       window.localStorage.setItem('emojis', JSON.stringify(emojiObj));
       inputfield.val('');
     }
-
+    this.props.changeEmojis();
+    //need to alert that emoji has been added, somehow...
   },
 
   render: function() {
@@ -90,7 +87,7 @@ var AddForm = React.createClass({
     return (
       <div>
         <AddInput />
-        <AddButton />
+        <AddButton changeEmojis={this.props.changeEmojis}/>
       </div>
     );
   }
@@ -101,16 +98,30 @@ var AddForm = React.createClass({
       "(((o(*ﾟ▽ﾟ*)o)))": "(((o(*ﾟ▽ﾟ*)o)))" }));*/
 
 var Content = React.createClass({
+  getInitialState: function() {
+    return { emojiObj: JSON.parse(window.localStorage.getItem('emojis')) };
+  },
+
+  changeEmojis: function() {
+    console.log('successfully bubbled up!');
+    this.setState({ emojiObj: JSON.parse(window.localStorage.getItem('emojis')) });
+  },
+
   render: function() {
+    var emojis =  [];
+    for(var key in emojiObj) {
+      emojis.push(emojiObj[key]);
+    }
+
     return (
       <div>
         <Title />
-        <EmojiList data={this.props.data}/>
-        <AddForm />
+        <EmojiList data={emojis} />
+        <AddForm changeEmojis={this.changeEmojis}/>
       </div>
     );
   }
 });
 
-React.render(<Content data={emojis} />, document.getElementById('content'));
+React.render(<Content test={this.test}/>, document.getElementById('content'));
 
