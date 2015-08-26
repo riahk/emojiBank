@@ -1,10 +1,19 @@
+var taggedEmojis = {
+  '(///▽///)': {
+      emoji: '(///▽///)',
+      tags: ['shy']
+  },
+
+  '(((o(*ﾟ▽ﾟ*)o)))': {
+      emoji: '(((o(*ﾟ▽ﾟ*)o)))',
+      tags: ['excited']
+  }
+};
+
+window.localStorage.setItem('emojis', JSON.stringify(taggedEmojis));
+
 var emojiObj = JSON.parse(window.localStorage.getItem('emojis'));
 console.log(emojiObj);
-
-var emojis =  [];
-for(var key in emojiObj) {
-  emojis.push(emojiObj[key]);
-}
 
 var Title = React.createClass({
   render: function() {
@@ -38,14 +47,17 @@ var EmojiList = React.createClass({
 
 var Emoji = React.createClass({
   select: function(event) {
-    $($(event.target).children()[0]).select();
+    if(event.target.tagName === 'INPUT') {
+      $(event.target).select();
+    } else {
+        $($(event.target).children()[0]).select();
+      }
   },
-
 
   render: function() {
     return (
       <li onClick={this.select}>
-        <input value={this.props.emoji} readOnly></input>
+        <input onClick={this.select} value={this.props.emoji} readOnly></input>
       </li>
     );
   }
@@ -93,13 +105,51 @@ var AddForm = React.createClass({
   }
 });
 
+var SearchInput = React.createClass({
+  render: function() {
+    return (
+      <input placeholder="search by tag"></input>
+    );
+  }
+});
+
+var SearchButton = React.createClass({
+  filter: function(event) {
+    var inputfield = $($(event.target).parent().children()[0]);
+    var newFilter = inputfield.val();
+    
+    this.props.changeFilter(newFilter);
+  },
+
+  render: function() {
+    return (
+      <button onClick={this.filter}>Search</button>
+    );
+  }
+});
+
+var SearchForm = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <SearchInput />
+        <SearchButton changeFilter={this.props.changeFilter}/>
+      </div>
+    );
+  }
+});
 
 /*window.localStorage.setItem('emojis', JSON.stringify({ "(///▽///)": "(///▽///)", 
       "(((o(*ﾟ▽ﾟ*)o)))": "(((o(*ﾟ▽ﾟ*)o)))" }));*/
 
 var Content = React.createClass({
   getInitialState: function() {
-    return { emojiObj: JSON.parse(window.localStorage.getItem('emojis')) };
+    return { emojiObj: JSON.parse(window.localStorage.getItem('emojis')),
+    filter: '' };
+  },
+
+  changeFilter: function(newFilter) {
+    this.setState({filter: newFilter});
   },
 
   changeEmojis: function() {
@@ -110,12 +160,22 @@ var Content = React.createClass({
   render: function() {
     var emojis =  [];
     for(var key in emojiObj) {
-      emojis.push(emojiObj[key]);
+      if(this.state.filter.length > 0) { //if there's a filter, use it
+        //cycle through the emoji's tags to see if they match
+        var tags = emojiObj[key].tags;
+        for(var i = 0; i < tags.length; i++) {
+          if(tags[i] === this.state.filter) {
+            emojis.push(emojiObj[key].emoji);
+            break;
+          }
+        }
+      } else { emojis.push(emojiObj[key].emoji); }
     }
 
     return (
       <div>
         <Title />
+        <SearchForm changeFilter={this.changeFilter}/>
         <EmojiList data={emojis} />
         <AddForm changeEmojis={this.changeEmojis}/>
       </div>
