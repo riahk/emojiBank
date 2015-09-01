@@ -4,18 +4,27 @@ var Emoji = React.createClass({
   select: function(event) {
     $('.msg').addClass('hidden');
     $('.selected').removeClass('selected');
+    $('.deleteButton').addClass('hidden');
     if(event.target.tagName === 'INPUT') {
       $(event.target).select();
       var div = $(event.target).parent();
       var msg = $(div).children()[1];
+      var deleteButton = $(div).children()[2];
       $(msg).removeClass('hidden');
       $(div).addClass('selected');
+      $(deleteButton).removeClass('hidden');
     } else {
         $($(event.target).children()[0]).select();
         var msg = $(event.target).children()[1];
+        var deleteButton = $(event.target).children()[2];
         $(msg).removeClass('hidden');
         $(event.target).addClass('selected');
+        $(deleteButton).removeClass('hidden');
       }
+    if(event.target.tagName === 'BUTTON') {
+      var div = $(event.target).parent();
+      $(div).addClass('selected');
+    }
   },
 
   showDelete: function(event) {
@@ -29,6 +38,8 @@ var Emoji = React.createClass({
   },
 
   confirmDelete: function(event) {
+    var div = $(event.target).parent();
+    $(div).addClass('selected');
     var emojiInput = $(event.target).parent().children()[0];
     var emoji = $(emojiInput).val();
     var confirmPanel = $(event.target).parent().children()[3];
@@ -38,7 +49,7 @@ var Emoji = React.createClass({
   deleteEmoji: function(event) {
     var emojiInput = $(event.target).parent().parent().children()[0];
     var emoji = $(emojiInput).val();
-    console.log(emoji);
+    //console.log(emoji);
 
     //delete emoji from localStorage
     var emojiObj = JSON.parse(window.localStorage.getItem('emojis'));
@@ -57,13 +68,13 @@ var Emoji = React.createClass({
 
   render: function() {
     return (
-      <li className="emoji" key={this.props.key} onMouseOver={this.showDelete} onMouseLeave={this.hideDelete} onClick={this.select}>
+      <li className="emoji" key={this.props.key} onClick={this.select}>
         <input key={this.props.key} onClick={this.select} value={this.props.data.emoji} readOnly></input>
         <div className="msg hidden"><span>cmd/ctrl + c!</span>
         </div>
-        <button onClick={this.confirmDelete} className="hidden">x</button>
+        <button onClick={this.confirmDelete} className="deleteButton hidden">Delete?</button>
         <div className="confirm hidden">
-          <span>are you sure?</span>
+          <span className="confirmmsg">are you sure?</span>
           <button onClick={this.deleteEmoji}>yes</button>
           <button onClick={this.cancelDelete}>no</button>
         </div>

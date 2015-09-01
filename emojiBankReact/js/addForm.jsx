@@ -14,21 +14,21 @@ var AddInput = React.createClass({
 
 var AddButton = React.createClass({
   addEmoji: function(event) {
-    console.log('add emoji functionality here');
+    //console.log('add emoji functionality here');
     var div = $($(event.target).parent().children()[0]);
-    console.log(div);
+    //console.log(div);
 
     var emojifield = $(div).children()[0];
     var tagfield = $(div).children()[2];
 
-    console.log(emojifield);
-    console.log(tagfield);
+    //console.log(emojifield);
+    //console.log(tagfield);
 
     var emoji = $(emojifield).val();
     var tags = $(tagfield).val().split(',');
 
-    console.log(tags);
-    console.log(emoji);
+    //console.log(tags);
+    //console.log(emoji);
     
     //add emoji to localStorage
     if(emoji.length > 0) {
@@ -39,7 +39,7 @@ var AddButton = React.createClass({
       newEmoji['tags'] = tags;
       newemojiObj[emoji] = newEmoji;
 
-      console.log(newEmoji);
+      //console.log(newEmoji);
 
       window.localStorage.setItem('emojis', JSON.stringify(newemojiObj));
 

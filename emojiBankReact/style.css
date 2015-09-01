@@ -50,8 +50,21 @@ input:focus {
 .selected {
   padding: 5px;
   background-color: LightSkyBlue;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .emoji {
   max-width: 200px;
+}
+
+.confirmmsg {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.deleteButton {
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

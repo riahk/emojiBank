@@ -3,6 +3,51 @@ import SearchForm from "./search.jsx";
 import AddForm from "./addForm.jsx";
 import EmojiList from "./emojilist.jsx";
 
+if(window.localStorage.getItem('emojis') !== undefined) {
+  var emojiObj = JSON.parse(window.localStorage.getItem('emojis'));
+  //console.log('check for data here!');
+  var needsFix = false;
+  for(var key in emojiObj) {
+    if(typeof emojiObj[key] === 'string') { //old data formatting
+      needsFix = true;
+      //console.log('need to reformat!');
+      break;
+    } else {
+        break;
+    }
+  }
+
+  if(needsFix) {
+    //console.log('reformatting...');
+    //console.log(emojiObj);
+    var newemojiObj = {};
+    for(var key in emojiObj) {
+      var emoji = {};
+      emoji['emoji'] = key;
+      emoji['tags'] = [];
+      newemojiObj[key] = emoji;
+    }
+    //console.log(newemojiObj);
+    window.localStorage.setItem('emojis', JSON.stringify(newemojiObj));
+  }
+
+} else {
+  //if there's no localstorage data, set the default emoji object
+  var emojiObj = {
+    '(///▽///)': {
+        emoji: '(///▽///)',
+        tags: ['shy']
+    },
+
+    '(((o(*ﾟ▽ﾟ*)o)))': {
+        emoji: '(((o(*ﾟ▽ﾟ*)o)))',
+        tags: ['excited']
+    }
+  };
+
+  window.localStorage.setItem('emojis', emojiObj);
+}
+
 var Title = React.createClass({
   render: function() {
     return (
@@ -24,14 +69,14 @@ var Content = React.createClass({
   },
 
   changeEmojis: function() {
-    console.log('successfully bubbled up!');
-    console.log(JSON.parse(window.localStorage.getItem('emojis')));
+    //console.log('successfully bubbled up!');
+    //console.log(JSON.parse(window.localStorage.getItem('emojis')));
     this.setState({ emojiObj: JSON.parse(window.localStorage.getItem('emojis')) });
   },
 
   render: function() {
     var emojis =  [];
-    console.log(this.state.emojiObj);
+    //console.log(this.state.emojiObj);
     for(var key in this.state.emojiObj) {
       if(this.state.filter.length > 0) { //if there's a filter, use it
         //cycle through the emoji's tags to see if they match
