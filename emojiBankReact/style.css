@@ -51,3 +51,7 @@ input:focus {
   padding: 5px;
   background-color: LightSkyBlue;
 }
+
+.emoji {
+  max-width: 200px;
+}

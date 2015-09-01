@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./entry.js",
+  entry: "./js/content.jsx",
   output: {
     path: __dirname,
     filename: "emoji.js"
