@@ -1,52 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-#newEmoji {
-  height: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-input:focus {
-  outline: none;
-  border-style: solid;
-  border-color: Plum;
-}
-
-.bank {
-  width: 200px;
-  list-style-type: none;
-  padding: 0px;
-}
-
-.emoji {
-  padding: 5px;
-  border-radius: 2px;
-}
-
-.selected {
-  background-color: LightSkyBlue;
-  color: indigo;
-}
-
-.title {
-  color: teal;
-}
-
-.hidden {
-  display: none;
-}
-
 button {
   font-family: 'Montserrat', sans-serif;
-  padding: 10px;
+  padding: 3px;
+  margin-left: 2px;
+  margin-right: 2px;
   background-color: pink;
   color: indigo;
-  border-style: none;
+  border-style: solid;
+  border-color: pink;
   border-radius: 5px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 button:focus {
@@ -55,18 +23,48 @@ button:focus {
   border-color: Plum;
 }
 
-::selection {
-  background: Plum;
+input {
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
-::-moz-selection {
-  background: Plum;
+input:focus {
+  outline: none;
+  border-style: solid;
+  border-color: Plum;
 }
 
-.yes {
-  margin: 2px;
+.hidden {
+  display: none;
 }
 
-.no {
-  margin: 2px;
+.title {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.msg {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.selected {
+  padding: 5px;
+  background-color: LightSkyBlue;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.emoji {
+  max-width: 200px;
+}
+
+.confirmmsg {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.deleteButton {
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
