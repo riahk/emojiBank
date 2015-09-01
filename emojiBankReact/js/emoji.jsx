@@ -1,3 +1,4 @@
+import React from "react";
 //TODO: code to update localstorage for already existing users
 
 var taggedEmojis = {
