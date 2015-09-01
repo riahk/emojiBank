@@ -3,7 +3,7 @@ import SearchForm from "./search.jsx";
 import AddForm from "./addForm.jsx";
 import EmojiList from "./emojilist.jsx";
 
-if(window.localStorage.getItem('emojis') !== undefined) {
+if(window.localStorage.getItem('emojis') !== null) {
   var emojiObj = JSON.parse(window.localStorage.getItem('emojis'));
   //console.log('check for data here!');
   var needsFix = false;
@@ -45,7 +45,7 @@ if(window.localStorage.getItem('emojis') !== undefined) {
     }
   };
 
-  window.localStorage.setItem('emojis', emojiObj);
+  window.localStorage.setItem('emojis', JSON.stringify(emojiObj));
 }
 
 var Title = React.createClass({

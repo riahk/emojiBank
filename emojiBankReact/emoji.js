@@ -64,7 +64,7 @@
 
 	var _emojilistJsx2 = _interopRequireDefault(_emojilistJsx);
 
-	if (window.localStorage.getItem('emojis') !== undefined) {
+	if (window.localStorage.getItem('emojis') !== null) {
 	  var emojiObj = JSON.parse(window.localStorage.getItem('emojis'));
 	  //console.log('check for data here!');
 	  var needsFix = false;
@@ -106,7 +106,7 @@
 	    }
 	  };
 
-	  window.localStorage.setItem('emojis', emojiObj);
+	  window.localStorage.setItem('emojis', JSON.stringify(emojiObj));
 	}
 
 	var Title = _react2["default"].createClass({
@@ -20813,7 +20813,7 @@
 	        'div',
 	        { className: 'confirm hidden' },
 	        _react2['default'].createElement(
-	          'span',
+	          'p',
 	          { className: 'confirmmsg' },
 	          'are you sure?'
 	        ),
