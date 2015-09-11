@@ -1,7 +1,11 @@
 import React from "react";
+import Router from "react-router";
 import SearchForm from "./search.jsx";
 import AddForm from "./addForm.jsx";
 import EmojiList from "./emojilist.jsx";
+
+var Route = Router.Route;
+var RouteHandler = Router.RouteHandler;
 
 if(window.localStorage.getItem('emojis') !== null) {
   var emojiObj = JSON.parse(window.localStorage.getItem('emojis'));
@@ -98,7 +102,6 @@ var Content = React.createClass({
 
     return (
       <div>
-        <Title />
         <SearchForm changeFilter={this.changeFilter}/>
         <EmojiList data={data} />
         <AddForm changeEmojis={this.changeEmojis}/>
@@ -107,5 +110,24 @@ var Content = React.createClass({
   }
 });
 
-React.render(<Content />, document.getElementById('content'));
+var App = React.createClass({
+  render() {
+    return (
+      <div>
+        <Title />
+        <RouteHandler />
+      </div>
+    )
+  }
+});
+
+var routes = (
+  <Route handler={App}>
+    <Route name="content" path="/" handler={Content} />
+  </Route>
+);
+
+Router.run(routes, function (Handler) {
+  React.render(<Handler />, document.getElementById('content'));
+});
 
