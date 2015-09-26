@@ -74,7 +74,7 @@ var Emoji = React.createClass({
         </div>
         <button onClick={this.confirmDelete} className="deleteButton hidden">Delete?</button>
         <div className="confirm hidden">
-          <span className="confirmmsg">are you sure?</span>
+          <p className="confirmmsg">are you sure?</p>
           <button onClick={this.deleteEmoji}>yes</button>
           <button onClick={this.cancelDelete}>no</button>
         </div>
