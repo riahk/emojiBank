@@ -15,7 +15,8 @@ urls = [
     { 'url': 'http://japaneseemoticons.me/angry-emoticons/', 'filename': 'angry' },
     { 'url': 'http://japaneseemoticons.me/hurt-or-sick-emoticons/', 'filename': 'hurt' },
     { 'url': 'http://japaneseemoticons.me/worried-emoticons/', 'filename': 'worried' },
-    { 'url': 'http://japaneseemoticons.me/scared-emoticons/', 'filename': 'scared' }
+    { 'url': 'http://japaneseemoticons.me/scared-emoticons/', 'filename': 'scared' },
+    { 'url': 'http://japaneseemoticons.me/sad-emoticons/', 'filename': 'sad' }
     ]
 
 for emojiSet in urls:

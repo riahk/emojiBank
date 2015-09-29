@@ -8,10 +8,21 @@ var filters = {
   'love': [],
   'excited': [],
   'triumph': [],
-  'happy': []
+  'happy': [],
+  'angry': [],
+  'confused': [],
+  'crazy': [],
+  'hungry': [],
+  'hurt': [],
+  'scared': [],
+  'shy': [],
+  'smug': [],
+  'worried': [],
+  'sad': [],
+  'surprised': []
 }
 
-var requests = ['love','excited','triumph','happy'];
+var requests = ['love','excited','triumph','happy', 'angry', 'confused', 'crazy', 'hungry', 'hurt', 'scared', 'shy', 'smug', 'worried', 'sad', 'surprised'];
 
 var request = new XMLHttpRequest();
 request.filter = requests.shift();
