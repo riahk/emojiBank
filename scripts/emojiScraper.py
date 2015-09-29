@@ -5,7 +5,17 @@ urls = [
     { 'url': 'http://japaneseemoticons.me/excited-emoticons/', 'filename': 'excited' },
     { 'url': 'http://japaneseemoticons.me/happy-emoticons/', 'filename': 'happy' },
     { 'url': 'http://japaneseemoticons.me/love-emoticons/', 'filename': 'love' },
-    { 'url': 'http://japaneseemoticons.me/triumph-emoticons/', 'filename': 'triumph' }
+    { 'url': 'http://japaneseemoticons.me/triumph-emoticons/', 'filename': 'triumph' },
+    { 'url': 'http://japaneseemoticons.me/confused-emoticons/', 'filename': 'confused' },
+    { 'url': 'http://japaneseemoticons.me/crazy-emoticons/', 'filename': 'crazy' },
+    { 'url': 'http://japaneseemoticons.me/hungry-emoticons/', 'filename': 'hungry' },
+    { 'url': 'http://japaneseemoticons.me/shy-emoticons/', 'filename': 'shy' },
+    { 'url': 'http://japaneseemoticons.me/smug-emoticons/', 'filename': 'smug' },
+    { 'url': 'http://japaneseemoticons.me/surprised-emoticons/', 'filename': 'surprised' },
+    { 'url': 'http://japaneseemoticons.me/angry-emoticons/', 'filename': 'angry' },
+    { 'url': 'http://japaneseemoticons.me/hurt-or-sick-emoticons/', 'filename': 'hurt' },
+    { 'url': 'http://japaneseemoticons.me/worried-emoticons/', 'filename': 'worried' },
+    { 'url': 'http://japaneseemoticons.me/scared-emoticons/', 'filename': 'scared' }
     ]
 
 for emojiSet in urls:
