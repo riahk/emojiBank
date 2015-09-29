@@ -4,6 +4,7 @@ import SearchForm from "./search.jsx";
 import AddForm from "./addForm.jsx";
 import EmojiList from "./emojilist.jsx";
 import GetMore from "./getmore.jsx";
+import CategoryPage from "./category.jsx";
 
 import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
@@ -193,7 +194,7 @@ var selector = function(state) {
 
 GetMorePage = connect(selector)(GetMorePage)
 
-var CategoryPage = React.createClass({
+/*var CategoryPage = React.createClass({
   render: function() {
     return (
       <div>
@@ -204,7 +205,7 @@ var CategoryPage = React.createClass({
   }
 });
 
-CategoryPage = connect(selector)(CategoryPage);
+CategoryPage = connect(selector)(CategoryPage);*/
 
 var routes = (
   <Route handler={Wrapper}>
