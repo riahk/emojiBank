@@ -3,8 +3,7 @@
 button {
   font-family: 'Montserrat', sans-serif;
   padding: 3px;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin: 2px;
   background-color: pink;
   color: indigo;
   border-style: solid;

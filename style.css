@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
+#content {
+  min-width: 200px;
+}
+
 button {
   font-family: 'Montserrat', sans-serif;
   padding: 3px;
@@ -56,6 +60,10 @@ input:focus {
 
 .emoji {
   max-width: 200px;
+}
+
+.getmoreemoji {
+  padding: 5px;
 }
 
 .confirmmsg {
